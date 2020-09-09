@@ -1,6 +1,6 @@
 package ru.netology
 
-object WallService {
+class WallService {
     private var posts = emptyArray<Post>()
 
     fun add(post: Post): Post {
@@ -11,7 +11,7 @@ object WallService {
     fun update(post: Post): Boolean {
         val indexPostUpdates = posts.indexOf(post)
         return if (indexPostUpdates != -1) {
-            posts[indexPostUpdates] = post.copy(text = "New ${post.text}")
+            posts[indexPostUpdates] = post.copy(ownerId = posts[indexPostUpdates].ownerId, date = posts[indexPostUpdates].date)
             true
         } else {
             false

@@ -17,7 +17,7 @@ data class Post(
     val views: Any,
     val postType: String,
     val signerId: Int,
-    val canOin: Boolean,
+    val canPin: Boolean,
     val canDelete: Boolean,
     val canEdit: Boolean,
     val isPinned: Boolean,
@@ -33,18 +33,11 @@ data class Post(
         other as Post
 
         if (id != other.id) return false
-        if (ownerId != other.ownerId) return false
-        if (date != other.date) return false
-        if (text != other.text) return false
 
         return true
     }
 
     override fun hashCode(): Int {
-        var result = id
-        result = 31 * result + ownerId
-        result = 31 * result + date
-        result = 31 * result + text.hashCode()
-        return result
+        return id
     }
 }
