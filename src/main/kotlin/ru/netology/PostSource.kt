@@ -1,4 +1,3 @@
 package ru.netology
 
-class PostSource {
-}
+class PostSource()// TODO: 15.09.2020
