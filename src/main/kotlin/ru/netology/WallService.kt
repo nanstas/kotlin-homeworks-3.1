@@ -3,6 +3,7 @@ package ru.netology
 class WallService {
     private var posts = emptyArray<Post>()
     private var comments = emptyArray<Comment>()
+    private var reports = emptyArray<Report>()
 
     fun add(post: Post): Post {
         posts += if (posts.isEmpty()) post.copy(idInPosts = 1) else post.copy(idInPosts = posts.last().idInPosts + 1)
@@ -28,5 +29,16 @@ class WallService {
             }
         }
         throw PostNotFoundException("no post with id ${comment.postId}")
+    }
+
+    fun reportComment(report: Report): Int {
+        for (comment: Comment in comments) {
+            if (comment.id == report.commentId) {
+                if (report.reason !in 0..8) throw ReasonNotFoundException("no reason with id ${report.reason}")
+                reports += report
+                return 1
+            }
+        }
+        throw CommentNotFoundException("no comment with id ${report.commentId}")
     }
 }
