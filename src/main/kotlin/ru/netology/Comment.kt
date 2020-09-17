@@ -6,9 +6,9 @@ data class Comment(
         val postId: Int,
         val date: Int,
         val text: String,
-        val replayToUser: Int,
-        val replayToComment: Int,
-        val attachments: Attachments,
-        val parentsStack: Array<Int>,
-        val thread: Thread
+        val replayToUser: Int? = null,
+        val replayToComment: Int? = null,
+        val attachments: Attachments? = null,
+        val parentsStack: Array<Int>? = null,
+        val thread: Thread? = null
 )

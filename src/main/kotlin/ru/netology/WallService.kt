@@ -20,9 +20,13 @@ class WallService {
         return false
     }
 
-    fun createComment(comment: Comment) {
-        for (i: Int in 0..posts.size) {
-            if (posts[i].id == comment.postId) comments += comment
+    fun createComment(comment: Comment): Boolean {
+        for (p: Post in posts) {
+            if (p.id == comment.postId) {
+                comments += comment
+                return true
+            }
         }
+        throw PostNotFoundException("no post with id ${comment.postId}")
     }
 }
