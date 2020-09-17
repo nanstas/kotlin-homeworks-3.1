@@ -1,6 +1,6 @@
 package ru.netology
 
-class Link(
+data class Link(
         val url: String,
         val title: String,
         val caption: String,

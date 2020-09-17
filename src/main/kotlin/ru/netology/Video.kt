@@ -1,6 +1,6 @@
 package ru.netology
 
-class Video(
+data class Video(
         val id: Int,
         val ownerId: Int,
         val title: String,

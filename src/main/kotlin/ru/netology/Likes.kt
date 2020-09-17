@@ -1,6 +1,6 @@
 package ru.netology
 
-class Likes (
+data class Likes (
     val count: Int,
     val userLikes: Boolean,
     val canLike: Boolean,
